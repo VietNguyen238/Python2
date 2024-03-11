@@ -1,0 +1,54 @@
+<style>
+  html,
+  body {
+    height: 100%;
+    background-color: #f6f6f6;
+  }
+</style>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+        <center>
+          <img src="https://tse2.mm.bing.net/th?id=OIP.Y9MaxiVxV-8HnzG7MuNC3wHaE8&pid=Api&P=0&h=180" class="responsive-img" style="max-height: 150px" />
+        </center>
+      </div>
+      <div class="col-sm-10">
+        <center>
+          <h1>Blog</h1>
+        </center>
+      </div>
+    </div>
+    <br />
+    <div class="row">
+      <div class="col-sm-2">
+        <div class="bs-sliderbar" style="background-color: #ffffff">
+          <ul class="nav flex-column" style="list-style-type: none; display: flex; justify-content: space-around;">
+            <li>
+              <a href="/contact" style="text-decoration: none">Thông tin cá nhân</a>
+            </li>
+            <li>
+              <a href="/blog/" style="text-decoration: none">Bài viết</a>
+            </li>
+            <li>
+              <a href="/student/" style="text-decoration: none">Liên hệ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-10">
+        {% block content %}
+
+        {% endblock %}
+      </div>
+    </div>
+    <footer>
+      <div class="container-fluid" style="width: 500px; justify-content: space-around;">
+        <a href="/" style="text-decoration: none">Facebook</a> |
+        <a href="/" style="text-decoration: none">Instagram</a> |
+        <a href="/" style="text-decoration: none">Google</a>|
+        <a href="/blog/logout" style="text-decoration: none">đăng xuất</a>
+      </div>
+    </footer>
+  </div>
+</body>
