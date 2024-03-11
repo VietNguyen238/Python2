@@ -1,0 +1,36 @@
+{% load compress %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}" />
+    {% endcompress %}
+    <title>Register</title>
+    <style>
+      input {
+        min-width: 100%;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        border: 1px solid #d1d5db;
+        border-radius: 0.25rem;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-200">
+    <div class="min-h-screen flex items-center justify-center">
+      <div class="bg-white p-10 rounded shadow-md">
+        <h1 class="text-3xl font-bold mb-6">Register</h1>
+        <form action="." method="POST" class="space-y-2">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="bg-blue-500 hover:bg-blue-400 text-white py-[6px] px-4 rounded mr-2">Register</button>
+          <span class="text-gray-600">Or <a href="/" class="text-blue-500 hover:text-blue-300 ml-2">Login</a></span>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

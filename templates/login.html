@@ -1,0 +1,40 @@
+{% load compress %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}" />
+    {% endcompress %}
+    <title>Login</title>
+  </head>
+
+  <body class="bg-gray-200">
+    <div class="min-h-screen flex items-center justify-center">
+      <div class="bg-white p-10 rounded shadow-md">
+        <div class="flex justify-between">
+          <h1 class="text-3xl font-bold mb-6">Login</h1>
+          <a href="/"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="" class="h-[30px] w-[30px] object-cover" /></a>
+        </div>
+        <form action="/" method="POST" class="space-y-2">
+          {% csrf_token %} {% for key, value in form.errors.items %}
+            {{ value }}
+          {% endfor %}
+          <div class="flex flex-col">
+            <label for="username">Username:</label>
+            <input type="text" class="border p-2 mb-4 border-solid mt-2 border-[#d1d5db] min-w-[340px] rounded" id="username" name="username" />
+          </div>
+          <div class="flex flex-col">
+            <label for="password">Password:</label>
+            <input type="password" class="border p-2 mb-4 border-solid mt-2 border-[#d1d5db] min-w-[340px] rounded" id="password" name="password" />
+          </div>
+          <input type="hidden" name="next" value="/" />
+          <button type="submit" class="bg-blue-500 hover:bg-blue-400 text-white py-[6px] px-4 rounded mr-2">Login</button>
+          <span class="text-gray-600">Or <a href="/register" class="text-blue-500 hover:text-blue-300 ml-2">Register</a></span>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
